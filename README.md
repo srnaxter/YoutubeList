@@ -1,4 +1,4 @@
 # YoutubeList
 Proyecto Android Studio
 
-![Ejemplo](https://ibb.co/fMzY6H)
+![Texto alternativo opcional si no se carga la imagen](http://www.sampleurl.com/logo.png)
