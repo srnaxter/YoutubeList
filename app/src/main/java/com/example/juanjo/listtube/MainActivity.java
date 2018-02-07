@@ -1,5 +1,6 @@
 package com.example.juanjo.listtube;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.example.juanjo.listtube.model.Videos;
@@ -25,19 +27,18 @@ public class MainActivity extends AppCompatActivity{
     private static final String YOUTUBE_API_KEY = "AIzaSyB76zRR5Alvv8soFyFE9muAdy9cpc3ndI4";
 
 
-    public Button mDownloadRss;
+    public ImageButton mDownloadRss;
     public ListView mListVideos;
     public Videos videos;
     public String idVideo;
 
     private String mFileContent;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDownloadRss = findViewById(R.id.downloadRss);
+        mDownloadRss = (ImageButton) findViewById(R.id.downloadRss);
         mListVideos = findViewById(R.id.listViewVideos);
 
         mDownloadRss.setOnClickListener(new View.OnClickListener() {
