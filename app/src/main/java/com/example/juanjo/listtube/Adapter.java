@@ -1,4 +1,4 @@
-package com.example.marco.rssyoutube;
+package com.example.juanjo.listtube;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,21 +9,20 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.marco.rssyoutube.model.Videos;
+import com.example.juanjo.listtube.model.Videos;
 import com.squareup.picasso.Picasso;
+
+import org.example.juanjo.YoutubePlayer.R;
 
 import java.util.ArrayList;
 
-/**
- * Created by marco on 3/02/18.
- */
 
-public class AdapterEntry extends BaseAdapter {
+public class Adapter extends BaseAdapter {
 
     private Activity activity;
     private ArrayList<Videos> videosList;
 
-    public AdapterEntry(Activity activity, ArrayList<Videos> newsList) {
+    public Adapter(Activity activity, ArrayList<Videos> newsList) {
         this.activity = activity;
         this.videosList = newsList;
     }
@@ -49,19 +48,19 @@ public class AdapterEntry extends BaseAdapter {
 
         if (convertView == null){
             LayoutInflater inf = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v = inf.inflate(R.layout.videos_list_item, null);
+            v = inf.inflate(R.layout.videos_item, null);
         }
 
         Videos video = videosList.get(position);
 
         TextView title = v.findViewById(R.id.textViewTitle);
-        title.setText(video.getTitle());
+        title.setText(video.getTitulo());
 
-        TextView author = v.findViewById(R.id.textViewAuthor);
-        author.setText(video.getAuthor());
+        TextView author = v.findViewById(R.id.textViewUser);
+        author.setText(video.getUsuario());
 
         TextView views = v.findViewById(R.id.textViewViews);
-        views.setText(video.getViews());
+        views.setText(video.getVisitas());
 
         ImageView videosPic = v.findViewById(R.id.imageVideoPic);
 

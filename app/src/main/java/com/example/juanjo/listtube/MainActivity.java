@@ -1,4 +1,4 @@
-package com.example.marco.rssyoutube;
+package com.example.juanjo.listtube;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.example.juanjo.listtube.model.Videos;
 import com.google.android.youtube.player.YouTubeStandalonePlayer;
-import com.example.marco.rssyoutube.model.Videos;
+
+import org.example.juanjo.YoutubePlayer.R;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +22,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class MainActivity extends AppCompatActivity{
-    private static final String YOUTUBE_API_KEY = "AIzaSyBShCKwZnncIq3sx7pT55rWhBPi9dY9XTg";
+    private static final String YOUTUBE_API_KEY = "AIzaSyB76zRR5Alvv8soFyFE9muAdy9cpc3ndI4";
 
 
     public Button mDownloadRss;
@@ -43,9 +46,8 @@ public class MainActivity extends AppCompatActivity{
                 final ParseVideos parseVideos = new ParseVideos(mFileContent);
                 parseVideos.process();
 
-                AdapterEntry adapterVideos = new AdapterEntry(
-                        MainActivity.this,
-                        parseVideos.getVideos()
+                Adapter adapterVideos = new Adapter(
+                        MainActivity.this,parseVideos.getVideos()
 
                 );
 
@@ -57,10 +59,7 @@ public class MainActivity extends AppCompatActivity{
                         videos = parseVideos.getVideos(position);
                         idVideo = videos.getId();
                         Intent videoIntent = YouTubeStandalonePlayer.createVideoIntent(
-                                MainActivity.this,
-                                YOUTUBE_API_KEY,
-                                idVideo
-                        );
+                                MainActivity.this, YOUTUBE_API_KEY, idVideo);
                         startActivity(videoIntent);
                     }
                 });
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity{
 
 
         DownloadData downloadData = new DownloadData();
-        downloadData.execute("https://www.youtube.com/feeds/videos.xml?playlist_id=PLv3TTBr1W_9tppikBxAE_G6qjWdBljBHJ");
+        downloadData.execute("https://www.youtube.com/feeds/videos.xml?playlist_id=PLuUrokoVSxlcHkpmmpa-RwKgPQMdbSvlb");
 
     }
 

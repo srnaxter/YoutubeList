@@ -1,4 +1,4 @@
-package com.example.marco.rssyoutube;
+package com.example.juanjo.listtube;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,18 +1,14 @@
-package com.example.marco.rssyoutube;
+package com.example.juanjo.listtube;
 
 import android.util.Log;
 
-import com.example.marco.rssyoutube.model.Videos;
+import com.example.juanjo.listtube.model.Videos;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.StringReader;
 import java.util.ArrayList;
-
-/**
- * Created by marco on 3/02/18.
- */
 
 public class ParseVideos {
     private static final String TAG = "ParseVideos";
@@ -63,11 +59,11 @@ public class ParseVideos {
                                 videos.add(currentRecord);
                                 inEntry = false;
                             } else if ( tagName.equalsIgnoreCase("title")){
-                                currentRecord.setTitle(textValue);
+                                currentRecord.setTitulo(textValue);
                             } else if (tagName.equalsIgnoreCase("videoId")){
                                 currentRecord.setId(textValue);
                             } else if (tagName.equalsIgnoreCase("name")){
-                                currentRecord.setAuthor(textValue);
+                                currentRecord.setUsuario(textValue);
                             } else if (tagName.equalsIgnoreCase("thumbnail")){
                                 String url = xpp.getAttributeValue(null, "url");
                                 currentRecord.setImage(url);
@@ -78,7 +74,6 @@ public class ParseVideos {
                         }
                         break;
                     default:
-                        // Nothing
                 }
 
                 eventType = xpp.next();
